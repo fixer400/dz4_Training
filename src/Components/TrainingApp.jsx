@@ -2,6 +2,7 @@ import { useState } from "react"
 import TableElement from "./TableElement"
 
 function TrainingApp(){
+  
   const [form, setForm] = useState({
     date: '',
     distance: '',
@@ -9,6 +10,7 @@ function TrainingApp(){
   const [tableData, setTableData] = useState([])
 
   function onSubmit(){
+    
     if(form.date !== '' && form.distance !== 0){
       let newArr = tableData
       //проверка наличия даты в state
@@ -19,7 +21,8 @@ function TrainingApp(){
         newArr.push(form)
       }
       //
-      newArr.sort((a,b) => a.date > b.date ? 1 : -1)//сортировка по date
+
+      newArr.sort((a,b) => a.date > b.date ? -1 : 1)//сортировка по date
       setTableData(newArr)
       setForm({distance:'', date:''})
     }
