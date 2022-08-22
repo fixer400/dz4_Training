@@ -1,11 +1,10 @@
 import { useState } from "react"
 import TableElement from "./TableElement"
-import shortid from 'shortid'
 
 function TrainingApp(){
   const [form, setForm] = useState({
     date: '',
-    distance: 0,
+    distance: '',
   })
   const [tableData, setTableData] = useState([])
 
@@ -22,7 +21,7 @@ function TrainingApp(){
       //
       newArr.sort((a,b) => a.date > b.date ? 1 : -1)//сортировка по date
       setTableData(newArr)
-      setForm({distance:0, date:''})
+      setForm({distance:'', date:''})
     }
     else{
       alert('Поле не может быть пустым')
